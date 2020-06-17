@@ -156,26 +156,66 @@ public:
  };
 int main()
 {
+    int type;
+    std::cout<<"Type: ";
+    std::cin>>type;
+    std::cin.ignore();
+    std::fflush(stdin);//sin esto se vuelve loco
+
     //1)Int 2)Char 3)Double 4)String
-    Decoder d1(1);
-    string s1 = "((123)(4 5))";
-    cout << "Test con enteros: " << s1 << endl;
-    List<int>* l1 = d1.stringToList<int>(s1);
-    cout << "Cabeza: " << l1->getHead()->toString() << endl;
-    cout <<"Type-id del valor atomico: "<<typeid(l1->getHead()->getValue()).name() << endl;
-    Decoder d2(2);
-    cout << "\n";
-    string s2 = "(a b)";
-    cout << "Test con chars: " << s2 << endl;
-    List<char>* l2 = d2.stringToList<char>(s2);
-    cout << "Cabeza: " << l2->getHead()->toString() << endl;
-    cout << "Type-id del valor atomico: " << typeid(l2->getHead()->getValue()).name() << endl;
-    Decoder d3(3);
-    cout << "\n";
-    string s3 = "((3.14 2.71)(23.4))";
-    cout << "Test con doubles: " << s3 << endl;
-    List<double>* l3 = d3.stringToList<double>(s3);
-    cout << "Cabeza: " << l3->getHead()->toString() << endl;
-    cout << "Type-id del valor atomico: " << typeid(l3->getHead()->getValue()).name() << endl;
+    if(type==1){
+        //std::fflush(stdin);
+        Decoder d1(1);
+        //string s1 = "((123)(4 5))";
+        std::cout<<"Enter a command:";
+        std::string s1;
+        getline(std::cin, s1);
+        //std::fflush(stdin);
+        cout << "Test con enteros: " << s1 << endl;
+        List<int>* l1 = d1.stringToList<int>(s1);
+        cout << "Cabeza: " << l1->getHead()->toString() << endl;
+        cout <<"Type-id del valor atomico: "<<typeid(l1->getHead()->getValue()).name() << endl;
+        
+    }
+   else if(type==2){
+        Decoder d2(2);
+        cout << "\n";
+        std::cout<<"Enter a command:";
+        //string s2 = "((a)(b c))";
+        std::string s2;
+        getline(std::cin, s2);
+        cout << "Test con chars: " << s2 << endl;
+        List<char>* l2 = d2.stringToList<char>(s2);
+        cout << "Cabeza: " << l2->getHead()->toString() << endl;
+        cout << "Type-id del valor atomico: " << typeid(l2->getHead()->getValue()).name() << endl;
+    
+    }
+    else if(type==3){
+        Decoder d3(3);
+        cout << "\n";
+        std::cout<<"Enter a command:";
+        //string s3 = "((12.3)(4 5.1))";
+        std::string s3;
+        getline(std::cin, s3);
+        cout << "Test con doubles: " << s3 << endl;
+        List<double>* l3 = d3.stringToList<double>(s3);
+        cout << "Cabeza: " << l3->getHead()->toString() << endl;
+        cout << "Type-id del valor atomico: " << typeid(l3->getHead()->getValue()).name() << endl;
+    
+    }
+    else if(type==4){
+        std::fflush(stdin);
+        Decoder d4(4);
+        cout << "\n";
+        std::cout<<"Enter a command:";
+        //string s1 = "((hola)(adios patata))";
+        std::string s4;
+        getline(std::cin, s4);
+        std::fflush(stdin);
+        cout << "Test con string: " << s4 << endl;
+        List<std::string>* l4 = d4.stringToList<std::string>(s4);
+        cout << "Cabeza: " << l4->getHead()->toString() << endl;
+        cout << "Type-id del valor atomico: " << typeid(l4->getHead()->getValue()).name() << endl;
+    }
     return 0;
 }
