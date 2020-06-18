@@ -18,9 +18,10 @@ public:
 		decoder = new Decoder(tipoDato);//recordar hacer delete		
 	}
 	void run() {
+		mostrarInstrucciones();
 		std::string comando = "";
 		while (comando != "salir") {
-			comando = interfaz.pedirComando("Digite el comando: ");
+			comando = interfaz.pedirComando(">");
 			if (comando != "" && comando != "salir") {
 				std::vector<std::string> instrucciones = terminal.separarInstruccion(comando, ',');
 				int accion = terminal.identificarComando(instrucciones[0]);
@@ -31,17 +32,17 @@ public:
 					interfaz.mostrarError("Comando Invalido");
 				}
 			}
-			else if(comando != "salir") {
+			else if (comando != "salir") {
 				interfaz.mostrarError("Comando Invalido");
 			}
-			
-		}		
+
+		}
 	}
 	void realizarAccion(std::vector<std::string> instrucciones, int& accion) {
 		switch (accion) {
-		case 0:			
+		case 0:
 			crearLista(instrucciones);
-				break;
+			break;
 		case 6:
 			mostrarListas();
 			break;
@@ -54,7 +55,7 @@ public:
 		}
 	}
 	void crearLista(std::vector<std::string> instrucciones) {
-		
+
 		switch (instrucciones.size()) {//check size    crear,lista1,lista2.cabeza.cola,lista4.cola.cabeza
 		case 3:
 			//Jose Delgado
@@ -67,12 +68,15 @@ public:
 			break;
 		}
 	}
-	void crearListaConParentesis(std::vector<std::string> instrucciones) {
-		//Jose Delgado
-	
+	void crearListaConParentesis(std::vector<std::string> instrucciones) {		
 		if (lista.find(instrucciones[1]) == lista.end()) {
-			List<T>* nueva = decoder->stringToList<T>(instrucciones[2], instrucciones[1]);
-			lista.insert(std::pair<std::string,List<T>*>(instrucciones[1], nueva ));			
+			if (decoder->esInputValido(instrucciones[2])) {
+				List<T>* nueva = decoder->stringToList<T>(instrucciones[2], instrucciones[1]);
+				lista.insert(std::pair<std::string, List<T>*>(instrucciones[1], nueva));
+			}
+			else {
+				interfaz.mostrarError("Estructura Invalida de la Lista");
+			}
 		}
 		else {
 			interfaz.mostrarError("Ya existe una lista con ese nombre");
@@ -110,7 +114,22 @@ public:
 		if (aux) {
 			interfaz.mostrarMensaje(aux->toString());
 		}
-		
+
+	}
+
+	void mostrarInstrucciones() {
+		std::stringstream ss;
+		ss << " Intrucciones de Uso \n 1. Separe cada palabra por coma ',' \n 2. Si quiere agregar una lista siga las siguientes reglas: \n";
+		ss << " Separar cada valor por un unico espacio: ((1 2)(3)) \n Cada sublista debe ir entre parentesis ((1 2)(3)) \n \n";
+		ss << " Para crear una lista a partir de una hilera, debera usar la instruccion \"crear\" de esta manera: ";
+		ss << "\n \t Instruccion, nombreDeLista, hilera \n \t Ejemplo valido: crear,lista1,((123 34)(4 54)) \n \n";
+		ss << "Para crear una lista a partir de otras, debera usar la instruccion \"crear\" de esta manera: ";
+		ss << "\n \t Instruccion, nombreDeLista, listaCabeza, listaCola \n \t Ejemplo valido: crear,lista3,lista1.cabeza.cola,lista2.cola \n \n";
+		ss << "3. Si quiere ver todas las listas digite \"mostrar\" \n \t Ejemplo: mostrar \n";
+		ss << "4. Si quiere ver alguna lista en especifico digite \"buscar lista\" \n \t Ejemplos Validos:";
+		ss << "\n \t \t buscar,lista1";
+		ss << "\n \t \t buscar,lista1.cabeza.cola";
+		interfaz.mostrarMensaje(ss.str());
 	}
 
 	List<T>* getList(std::vector<std::string> instrucciones) {
@@ -120,7 +139,7 @@ public:
 			aux = lista[instrucciones[0]];
 			for (int i = 1; i < instrucciones.size() && aux; ++i) {
 				opcion = PARTESLISTA.find(instrucciones[i]);//check for npos
-				switch (opcion){
+				switch (opcion) {
 				case 0:
 				{
 					if (aux->getHead()) {
@@ -143,7 +162,7 @@ public:
 							interfaz.mostrarError("No existe la lista elegida como argumento");
 						}
 					}
-					
+
 					break;
 				}
 				default:
@@ -160,8 +179,8 @@ public:
 	void borrarListas() {
 		typename std::map<std::string, List<T>*>::iterator it;
 		for (it = lista.begin(); it != lista.end(); ++it) {
-			delete it->second;			
-			
+			delete it->second;
+
 		}
 	}
 
