@@ -43,7 +43,7 @@ public:
 	void run() {
 		std::cin.ignore();
 		std::fflush(stdin);
-		mostrarInstrucciones();
+		mostrarInstrucciones();		
 		std::string comando = "";
 		while (comando != "salir") {
 			comando = interfaz.pedirComando(">");
@@ -80,6 +80,9 @@ public:
 			break;
 		case 14:
 			buscar(instrucciones);
+			break;
+		case 21:
+			revisarExiste(instrucciones);
 			break;
 		default:
 			interfaz.mostrarError("Comando Invalido");
@@ -302,6 +305,33 @@ public:
 		ss << "\n \t \t buscar,lista1";
 		ss << "\n \t \t buscar,lista1.cabeza.cola";
 		interfaz.mostrarMensaje(ss.str());
+	}
+
+	void revisarExiste(std::vector<std::string> instrucciones) {
+		if (decoder->getDataTypeID() == 4) {
+			std::vector<std::string> existe = terminal.separarInstruccion(instrucciones[1], '.');//check if real		
+			List<std::string>* aux1 = getList2(existe);
+			if (aux1) {
+				if (aux1->find(instrucciones[2])) {
+					interfaz.mostrarMensaje("Elemento Encontrado");
+				}
+				else {
+					interfaz.mostrarError("Elemento No Encontrado");
+				}
+			}
+		}
+		else {
+			std::vector<std::string> existe = terminal.separarInstruccion(instrucciones[1], '.');//check if real		
+			List<T>* aux2 = getList(existe);
+			if (aux2) {
+				if (aux2->find(decoder->dataTypeConverter<T>(instrucciones[2]))) {
+					interfaz.mostrarMensaje("Elemento Encontrado");
+				}
+				else {
+					interfaz.mostrarError("Elemento No Encontrado");
+				}
+			}
+		}
 	}
 
 	/**
