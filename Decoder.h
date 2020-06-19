@@ -11,7 +11,7 @@ class Decoder
 private:
 	int dataTypeID;
 public:
-	Decoder(int dataTypeID) {  //1.Int 2.char 3.double 4.string   
+	Decoder(int dataTypeID) {  //1.Int 2.char 3.double 4.string   xd
 		this->dataTypeID = dataTypeID;
 	}
 
