@@ -56,16 +56,16 @@ public:
 			break;
 		}
 	}
-	void crearLista(std::vector<std::string> instrucciones) {
-
-		switch (instrucciones.size()) {//check size    crear,lista1,lista2.cabeza.cola,lista4.cola.cabeza
+	void crearLista(std::vector<std::string> instrucciones) {		
+		switch (instrucciones.size()) {
 		case 3:			
 			crearListaConParentesis(instrucciones);
 			break;
 		case 4:			
 			crearListaConComandos(instrucciones);
+			break;
 		default:
-			interfaz.mostrarError("Argumentos Invalido");
+			interfaz.mostrarError("Argumentos 11Invalido");
 			break;
 		}
 	}
