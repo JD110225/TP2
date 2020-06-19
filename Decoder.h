@@ -3,7 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include "List.h"
-#include "string"
+#include <string>
 #include <typeinfo>
 using namespace std;
 class Decoder
@@ -14,26 +14,31 @@ public:
 	Decoder(int dataTypeID) {  //1.Int 2.char 3.double 4.string   
 		this->dataTypeID = dataTypeID;
 	}
+
+	int getDataTypeID() {
+		return dataTypeID;
+	}
+
 	template <typename T>
 	T dataTypeConverter(string s) { //convierte un string al tipo de dato correspondiente.
 		T nuevoValor;
 		switch (dataTypeID) {
-		case 1: {
+		case 1: {//int
 			nuevoValor = stoi(s);
 			break;
 		}
-		case 2: {
+		case 2: {//char
 			nuevoValor = s[0];
 			break;
 		}
-		case 3: {
+		case 3: {//double
 			nuevoValor = stof(s);
 			break;
 		}
-		/*case 4: {
-			nuevoValor = (string)s;
-			break;
-		}*/
+			  //case 4: {//string
+			  //	nuevoValor = (string)s;
+			  //	break;
+			  //}
 		default: {
 			break;
 		}
@@ -53,6 +58,7 @@ public:
 		}
 		return counter;
 	}
+
 	int findIndex(string s, char c) {
 		int index = -1;
 		bool found = false;
@@ -77,7 +83,7 @@ public:
 		return tiene;
 	}
 	bool esInputValido(string s) {  //revisa que no haya espacios ahi random metidos y que la cantidad de '(' coincida con la cantidad de ')'.
-		bool condicion1 = contarOcurrenciasCaracter(s, '(') == contarOcurrenciasCaracter(s, ')');
+		bool condicion1 = contarOcurrenciasCaracter(s, '(') == contarOcurrenciasCaracter(s, ')') && contarOcurrenciasCaracter(s, '(') != 0;
 		bool condicion2 = tieneEspaciosEntreParentesis(s) == false;
 		return condicion1 && condicion2;
 	}
@@ -156,6 +162,71 @@ public:
 			}
 		}
 		l = new List<T>(head, tail, nombre, valorAtomico);
+		return l;
+	}
+	
+	List<string>* stringToList2(string s, string nombre)
+	{
+		List<string>* l = nullptr;
+		List<string>* head = nullptr;
+		List<string>* tail = nullptr;
+		string valorAtomico;
+		if (esInputValido(s)) {
+			if (esSoloCabeza(s)) {
+				stringstream stream(s.substr(1));
+				string token;
+				getline(stream, token, ')');
+				valorAtomico = token;
+			}
+			else {
+				if (esListaBasica(s)) {
+					stringstream stream(s.substr(1));
+					string token;
+					getline(stream, token, ' ');
+					string atomicVal1 = token;
+					head = new List<string>((atomicVal1));
+					getline(stream, token, ')');
+					string atomicVal2 = token;
+					tail = new List<string>((atomicVal2));
+				}
+				else {
+					removerInicioYFin(s);
+					string cabeza;
+					int indiceFinal = 0; //indice donde termina la cabeza
+					int counter = 0;
+					bool cabezaEncontrada = false;
+					for (unsigned int i = 0; i < s.length() && !cabezaEncontrada; ++i)
+					{
+						char c = s[i];
+						cabeza += c;
+						if (c == '(')
+						{
+							++counter;
+						}
+						else
+						{
+							if (c == ')')
+							{
+								if (counter == 1)
+								{
+									head = stringToList2(cabeza, nombre);
+									cabezaEncontrada = true;
+									indiceFinal = i;
+								}
+								else
+								{
+									--counter;
+								}
+							}
+
+						}
+					}
+					std::string cola = s.substr(indiceFinal + 1); //La cola va desde donde termina la cabeza, hasta el final de la lista
+					tail = stringToList2(cola, nombre);
+				}
+			}
+		}
+		l = new List<string>(head, tail, nombre, valorAtomico);
 		return l;
 	}
 
