@@ -1,28 +1,38 @@
+/**
+ * @file Terminal.cpp
+ * @author Eduardo Ayales
+ * @brief Esta clase se encarga de identificar y separar las instrucciones de la terminal
+ * @version 1.0
+ * @date 2020-06-19
+ *
+ * @copyright Free without any restriction
+ *
+ */
 #include "Terminal.h"
 
-std::vector<std::string> Terminal::separarInstruccion(std::string const &instruccion, char separador) {	
-	std::vector<std::string> keyWords;	
+ /**
+  * @brief Este método separa las partes de una instruccion en strings, recibe la instruccion y un separador para especificar cuando termina una palabra
+  *
+  * @param instruccion instruccion digitada por el usuario
+  * @param separador separador de palabras
+  * @return std::vector<std::string> la instruccion digitada por el usuario separada
+  */
+std::vector<std::string> Terminal::separarInstruccion(std::string const& instruccion, char separador) {
+	std::vector<std::string> keyWords;
 	std::stringstream ss(instruccion);
-	std::string keyWord = "";	
-	while (getline(ss,keyWord, separador)) {		
+	std::string keyWord = "";
+	while (getline(ss, keyWord, separador)) {
 		keyWords.push_back(keyWord);
-	}	
+	}
 	return keyWords;
 }
 
-int Terminal::identificarComando(std::string const& comando){
+/**
+ * @brief Este metodo identifica el comando digitado por el usuario en la terminal
+ *
+ * @param comando palabra clave digitada por el usuario
+ * @return int numero asociado al comando
+ */
+int Terminal::identificarComando(std::string const& comando) {
 	return INSTRUCCIONES.find(comando);
 }
-
-
-//int main(){      //01234567891234567891234567
-//	Terminal t;
-//	std::string instrucciones = "lista1";
-//	std::vector<std::string> keyWords = t.separarInstruccion(instrucciones, '.');
-//	std::cout << keyWords.size() << std::endl;
-//	for (int i = 0; i < keyWords.size(); ++i) {
-//		std::cout << keyWords[i] << std::endl;
-//	}
-//
-//	return 0;
-//}

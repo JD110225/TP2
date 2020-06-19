@@ -1,3 +1,13 @@
+/**
+ * @file Controlador.h
+ * @author Eduardo Ayales
+ * @brief Esta clase controla el flujo del programa
+ * @version 1.0
+ * @date 2020-06-19
+ *
+ * @copyright Free without any restriction
+ *
+ */
 #pragma once
 #include <map>
 #include <vector>
@@ -10,13 +20,26 @@
 template<typename T>
 class Controlador {
 public:
+	/**
+	 * @brief Destroy the Controlador object
+	 *
+	 */
 	~Controlador() {
 		delete decoder;
 		//borrarListas();
 	}
+	/**
+	 * @brief Construct a new Controlador object
+	 *
+	 * @param tipoDato numero correspondiente al tipo de dato seleccionado
+	 */
 	Controlador(int tipoDato) {
-		decoder = new Decoder(tipoDato);//recordar hacer delete		
+		decoder = new Decoder(tipoDato);
 	}
+	/**
+	 * @brief Este metodo inicia el programa
+	 *
+	 */
 	void run() {
 		std::cin.ignore();
 		std::fflush(stdin);
@@ -40,6 +63,13 @@ public:
 
 		}
 	}
+
+	/**
+	 * @brief Este metodo, segun la accion, procede a realizar lo solicitado por el usuario
+	 *
+	 * @param instrucciones instruccion del usuario separada por strings
+	 * @param accion numero correspondiente al tipo de dato seleccionado
+	 */
 	void realizarAccion(std::vector<std::string> instrucciones, int& accion) {
 		switch (accion) {
 		case 0:
@@ -56,12 +86,18 @@ public:
 			break;
 		}
 	}
-	void crearLista(std::vector<std::string> instrucciones) {		
+
+	/**
+	 * @brief Este metodo decide cual tipo de lista es la que se va a crear
+	 *
+	 * @param instrucciones instruccion del usuario separada por strings
+	 */
+	void crearLista(std::vector<std::string> instrucciones) {
 		switch (instrucciones.size()) {
-		case 3:			
+		case 3:
 			crearListaConParentesis(instrucciones);
 			break;
-		case 4:			
+		case 4:
 			crearListaConComandos(instrucciones);
 			break;
 		default:
@@ -69,7 +105,13 @@ public:
 			break;
 		}
 	}
-	void crearListaConParentesis(std::vector<std::string> instrucciones) {		
+
+	/**
+	 * @brief Este metodo crear una lista a partir de una hilera de datos digitados por el usuario
+	 *
+	 * @param instrucciones instruccion del usuario separada por strings
+	 */
+	void crearListaConParentesis(std::vector<std::string> instrucciones) {
 		if (decoder->getDataTypeID() == 4) {
 			if (listaString.find(instrucciones[1]) == listaString.end()) {
 				if (decoder->esInputValido(instrucciones[2])) {
@@ -86,7 +128,7 @@ public:
 		}
 		else {
 			if (lista.find(instrucciones[1]) == lista.end()) {
-				if (decoder->esInputValido(instrucciones[2]) && matchInput(instrucciones[2],decoder->getDataTypeID())) {
+				if (decoder->esInputValido(instrucciones[2]) && matchInput(instrucciones[2], decoder->getDataTypeID())) {
 					List<T>* nueva = decoder->stringToList<T>(instrucciones[2], instrucciones[1]);
 					lista.insert(std::pair<std::string, List<T>*>(instrucciones[1], nueva));
 				}
@@ -97,8 +139,14 @@ public:
 			else {
 				interfaz.mostrarError("Ya existe una lista con ese nombre");
 			}
-		}		
+		}
 	}
+
+	/**
+	 * @brief Este metodo crear una lista a partir de listas ya existentes
+	 *
+	 * @param instrucciones instruccion del usuario separada por strings
+	 */
 	void crearListaConComandos(std::vector<std::string> instrucciones) {
 		if (decoder->getDataTypeID() == 4) {
 			if (listaString.find(instrucciones[1]) == listaString.end()) {
@@ -132,12 +180,20 @@ public:
 				interfaz.mostrarError("Ya existe una lista con ese nombre");
 			}
 		}
-		
+
 	}
 
+	/**
+	 * @brief Este metodo verifica si lo digitado por el usuario corresponde al tipo de dato seleccionado
+	 *
+	 * @param hilera lo digitado por el usuario
+	 * @param tipoDato numero correspondiente al tipo de dato
+	 * @return true si corresponde al tipo de dato
+	 * @return false no corresponde al tipo de dato
+	 */
 	bool matchInput(std::string const& hilera, int tipoDato) {
 		bool valido = true;
-		switch (tipoDato){
+		switch (tipoDato) {
 		case 1:
 			valido = esNumero(hilera);
 			break;
@@ -149,6 +205,13 @@ public:
 		return valido;
 	}
 
+	/**
+	 * @brief Este metodo verifica si lo solicitado por el usuario es un entero
+	 *
+	 * @param hilera lo digitado por el usuario
+	 * @return true si es un entero
+	 * @return false no es un entero
+	 */
 	bool esNumero(std::string const& hilera) {
 		bool valido = true;
 		for (char c : hilera) {
@@ -159,6 +222,13 @@ public:
 		return valido;
 	}
 
+	/**
+	 * @brief Este metodo verifica si lo solicitado por el usuario es un double
+	 *
+	 * @param hilera lo digitado por el usuario
+	 * @return true si es un double
+	 * @return false no es un double
+	 */
 	bool esDouble(std::string const& hilera) {
 		bool valido = true;
 		for (char c : hilera) {
@@ -168,6 +238,11 @@ public:
 		}
 		return valido;
 	}
+
+	/**
+	 * @brief Este metodo muestra todas las listas
+	 *
+	 */
 	void mostrarListas() {
 		stringstream ss;
 		if (decoder->getDataTypeID() == 4) {
@@ -182,10 +257,15 @@ public:
 				ss << it->first << "		" << it->second->toString() << "\n";
 			}
 		}
-		
+
 		interfaz.mostrarMensaje(ss.str());
 	}
 
+	/**
+	 * @brief Este metodo busca una lista especifica, si la encuentra, la imprime
+	 *
+	 * @param instrucciones instruccion del usuario separada por strings
+	 */
 	void buscar(std::vector<std::string> instrucciones) {
 		std::vector<std::string> buscar = terminal.separarInstruccion(instrucciones[1], '.');//check if real		
 		if (decoder->getDataTypeID() == 4) {
@@ -200,11 +280,15 @@ public:
 				interfaz.mostrarMensaje(aux2->toString());
 			}
 		}
-		
-		
+
+
 
 	}
 
+	/**
+	 * @brief Este metodo le muestra las instrucciones del programa al usuario
+	 *
+	 */
 	void mostrarInstrucciones() {
 		std::stringstream ss;
 		ss << " Intrucciones de Uso \n 1. Separe cada palabra por coma ',' \n 2. Si quiere agregar una lista siga las siguientes reglas: \n";
@@ -220,6 +304,12 @@ public:
 		interfaz.mostrarMensaje(ss.str());
 	}
 
+	/**
+	 * @brief Este metodo, busca la lista especificada por el usuario, si existe, la devuelve
+	 *
+	 * @param instrucciones instruccion del usuario separada por strings
+	 * @return List<T>* retorna la lista solicitada o nullptr sino fue encontrada
+	 */
 	List<T>* getList(std::vector<std::string> instrucciones) {
 		List <T>* aux = nullptr;
 		if (lista.find(instrucciones[0]) != lista.end()) {
@@ -264,7 +354,12 @@ public:
 		return aux;
 	}
 
-
+	/**
+	 * @brief Este metodo, busca la lista especificada por el usuario, si existe, la devuelve
+	 *
+	 * @param instrucciones instruccion del usuario separada por strings
+	 * @return List<T>* retorna la lista solicitada o nullptr sino fue encontrada
+	 */
 	List<std::string>* getList2(std::vector<std::string> instrucciones) {
 		List <std::string>* aux = nullptr;
 		if (listaString.find(instrucciones[0]) != listaString.end()) {
@@ -309,6 +404,10 @@ public:
 		return aux;
 	}
 
+	/**
+	 * @brief Este metodo hace los "deletes" de las listas
+	 *
+	 */
 	void borrarListas() {
 		if (decoder->getDataTypeID() == 4) {
 			typename std::map<std::string, List<std::string>*>::iterator it;
@@ -324,13 +423,12 @@ public:
 
 			}
 		}
-		
+
 	}
 
 
 
 private:
-	//1 int  2 char   3 Double   4 String
 	std::map<std::string, List<T>*> lista;
 	std::map<std::string, List<std::string>*> listaString;
 	std::string const PARTESLISTA = "cabeza cola";
