@@ -338,7 +338,7 @@ public:
 
 	/**
 	 * @brief Este metodo, busca la lista especificada por el usuario, si existe, la devuelve
-	 *
+	 *Este metodo trabaja con hileras de la forma cabeza.cola.cabeza y crea la lista correspondiente
 	 * @param instrucciones instruccion del usuario separada por strings
 	 * @return List<T>* retorna la lista solicitada o nullptr sino fue encontrada
 	 */
@@ -459,8 +459,22 @@ public:
 		}
 
 	}
-
-
+	/**
+	 * @brief Get the Map object
+	 * 
+	 * @return std::map<std::string, List<T>*> 
+	 */
+	std::map<std::string, List<T>*> getMap(){
+		return this->lista;
+	}
+	/**
+	 * @brief Get the Map2 object
+	 * 
+	 * @return std::map<std::string, List<T>*> 
+	 */
+	std::map<std::string, List<T>*> getMap2(){
+		return this->listaString;
+	}
 
 private:
 	std::map<std::string, List<T>*> lista;

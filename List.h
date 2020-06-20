@@ -73,7 +73,7 @@ class List{
          * 
          */
         ~List(){
-            std::cout<<"Deleted: "<<this->name<<std::endl;
+            //std::cout<<"Deleted: "<<this->name<<std::endl;
             if(head!=nullptr){
                 if(head->getName()=="no-name"){
                     delete head;
@@ -160,7 +160,33 @@ class List{
                 ss << this->value;
             }
             else {
-                ss << "(" << this->head->toString() << " " << this->tail->toString() << ")";
+               ss << "(" << this->head->toString() << " " << this->tail->toString() << ")";
+
+                // if(this->head!=nullptr){
+                //     if(this->head->getHead()==nullptr && this->head->getTail()==nullptr && this->tail->getHead()!=nullptr){
+                //         ss << "((" << this->head->toString()<<")";
+                        
+                //     }
+                //     else{
+                //         if(this->head->getHead()==nullptr && this->head->getTail()==nullptr){
+                //             ss << "(" << this->head->toString() << " "; 
+                //         }
+                //         else{
+                //             ss<<this->tail->toString() << ")";
+                //         }
+                       
+                //     }
+                // }
+                // if(this->tail!=nullptr){
+                //     if(this->tail->getHead() == nullptr && this->tail->getTail()==nullptr && this->head!=nullptr){
+                //         ss<<"("<<this->tail->toString() << "))";
+                       
+                //     }else{
+                //        ss<<this->tail->toString() << ")";
+                //    }
+                    
+                // }
+            
             }
             return ss.str();
         }

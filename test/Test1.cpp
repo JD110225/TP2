@@ -4,28 +4,95 @@
 #include "../Decoder.h"
 #include "../Interfaz.h"
 #include "../Terminal.h"
+#include <utility>
+#include <vector>
 //Controlador.h Decoder.h Interfaz.h List.h Terminal.h
-TEST(TestPrueba, prueba){
-    EXPECT_EQ(true, true);
-}
+// TEST(TestPrueba, prueba){
+//     EXPECT_EQ(true, true);
+// }
 
-class ListClass : public ::testing::Test {
+class CrearLista : public ::testing::Test {
  protected:
   void SetUp() override {
-    list = new List<int>(3);
+    //reversar memoria para las listas
+    c = new Controlador<int>(1);
+    d1 = new Decoder(1);
+    d2 = new Decoder(2);
+    d3 = new Decoder(3);
+    d4 = new Decoder(4);
+    list = d1->stringToList<int>("((3 5)(6 1))", "lista1");
+    list2 = d1->stringToList<int>("((5)(6 1))", "lista2");
+    list3 = d1->stringToList<int>("", "lista3");
+    list4 = d2->stringToList<char>("((a b)(c d)","lista3");
+    list5 = d2->stringToList<char>("(  a ( d  1)) ","list4");
+    list6 = d4->stringToList2("((hola adios)(patata mango))","list6");
   }
 
    void TearDown() override {
-       delete list;
+       //liberar memoria
+        delete list;
+        delete list2;
+        delete list3;
+        delete list4;
+        delete list5;
+        delete d1;
+        delete d2;
+        delete d3;
+        delete d4;
    }
 
     List<int> *list;
+    List<int> *list2;
+    List<int> *list3;
+    List<char> *list4;
+    List<char> *list5;
+    List<std::string> *list6;
+    Decoder *d1;
+    Decoder *d2;
+    Decoder *d3;
+    Decoder *d4;
+    Controlador<int>*c;
 };
 
-TEST_F(ListClass, integerCases){
-    std::cout<<list->toString()<<std::endl;
-    ASSERT_TRUE(list->getValue() == 3);
+
+TEST_F(CrearLista, mostrarLista){
+    EXPECT_EQ(list->toString(),"((3 5) (6 1))");
 }
+TEST_F(CrearLista, mostrarLista2){
+    EXPECT_EQ(list2->toString(),"(5 (6 1))");
+}
+TEST_F(CrearLista, integerCases3){
+    std::cout<<"List3: "<<list3->toString()<<std::endl;
+    ASSERT_TRUE(list3->getHead()==nullptr && list3->getTail()==nullptr);
+}
+TEST_F(CrearLista, parantesisFaltantes){
+    ASSERT_TRUE(list4->getHead()==nullptr && list4->getTail()==nullptr);
+}
+TEST_F(CrearLista, espaciosDeMas){
+    ASSERT_TRUE(list5->getHead()==nullptr && list5->getTail()==nullptr);
+}
+TEST_F(CrearLista, buscarEnListaValorExistente){
+    EXPECT_EQ(list->find(3),true);
+}
+TEST_F(CrearLista, buscarValorNoExistente){
+    ASSERT_FALSE(list5->find('z')==true);
+}
+TEST_F(CrearLista, acceder_a_la_cabeza){
+    EXPECT_EQ(list6->getHead()->toString(),"(hola adios)");
+}
+
+
+TEST(Decoder, dataTypeConverter){
+    Decoder c = Decoder(2);
+    EXPECT_EQ('a',c.dataTypeConverter<char>("a"));
+}
+TEST(Decoder, esInputValido){
+    Decoder c = Decoder(2);
+    bool inputValido = c.esInputValido("( (a b)(c d");
+    ASSERT_FALSE(inputValido == true);
+}
+
+
 
 int main(){
     testing::InitGoogleTest();
