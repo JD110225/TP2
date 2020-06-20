@@ -1,0 +1,2 @@
+/usr/bin/ar.exe qc libListManager.a  CMakeFiles/ListManager.dir/Controlador.cpp.o CMakeFiles/ListManager.dir/Decoder.cpp.o CMakeFiles/ListManager.dir/Interfaz.cpp.o CMakeFiles/ListManager.dir/Terminal.cpp.o
+/usr/bin/ranlib.exe libListManager.a

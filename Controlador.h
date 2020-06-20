@@ -25,8 +25,8 @@ public:
 	 *
 	 */
 	~Controlador() {
+		borrarListas();
 		delete decoder;
-		//borrarListas();
 	}
 	/**
 	 * @brief Construct a new Controlador object
@@ -304,6 +304,8 @@ public:
 		ss << "4. Si quiere ver alguna lista en especifico digite \"buscar lista\" \n \t Ejemplos Validos:";
 		ss << "\n \t \t buscar,lista1";
 		ss << "\n \t \t buscar,lista1.cabeza.cola";
+		ss << "\n 5. Si quiere saber si un metodo existe digite 'existe' de esta manera: ";
+        ss << "\n \t Instruccion,nombreDeLista,elementoABuscar \n \t Ejemplo valido: existe,lista1.cabeza,2";
 		interfaz.mostrarMensaje(ss.str());
 	}
 
@@ -442,15 +444,17 @@ public:
 		if (decoder->getDataTypeID() == 4) {
 			typename std::map<std::string, List<std::string>*>::iterator it;
 			for (it = listaString.begin(); it != listaString.end(); ++it) {
-				delete it->second;
-
+				List<std::string> *aux = it->second;
+				it->second = nullptr;
+				delete aux;
 			}
 		}
 		else {
 			typename std::map<std::string, List<T>*>::iterator it;
 			for (it = lista.begin(); it != lista.end(); ++it) {
-				delete it->second;
-
+				List<T> *aux = it->second;
+				it->second = nullptr;
+				delete aux;
 			}
 		}
 

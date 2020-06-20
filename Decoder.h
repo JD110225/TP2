@@ -11,14 +11,29 @@ class Decoder
 private:
 	int dataTypeID;
 public:
+	/**
+	 * @brief Construct a new Decoder object
+	 * 
+	 * @param dataTypeID 
+	 */
 	Decoder(int dataTypeID) {  //1.Int 2.char 3.double 4.string   xd
 		this->dataTypeID = dataTypeID;
 	}
 
+	/**
+	 * @brief Get the Data Type I D object
+	 * 
+	 * @return int 
+	 */
 	int getDataTypeID() {
 		return dataTypeID;
 	}
-
+	/**
+	 * @brief Convierte un string a su repectivo tipo de dato dependiendo del dataTypeID
+	 * @param T
+	 * @param s hilera a ser casteada
+	 * @return T dato casteado
+	 */
 	template <typename T>
 	T dataTypeConverter(string s) { //convierte un string al tipo de dato correspondiente.
 		T nuevoValor;
@@ -35,10 +50,6 @@ public:
 			nuevoValor = stof(s);
 			break;
 		}
-			  //case 4: {//string
-			  //	nuevoValor = (string)s;
-			  //	break;
-			  //}
 		default: {
 			break;
 		}
@@ -48,7 +59,13 @@ public:
 		return nuevoValor;
 	}
 
-
+	/**
+	 * @brief cuenta las ocurrencias de un caracter
+	 * 
+	 * @param s hilera a ser recorrida
+	 * @param c caracter a ser contado
+	 * @return int 
+	 */
 	int contarOcurrenciasCaracter(string s, char c) {
 		int counter = 0;
 		for (char caracter : s) {
@@ -59,6 +76,13 @@ public:
 		return counter;
 	}
 
+	/**
+	 * @brief encuentra la posicion de un caracter en una hilera
+	 * 
+	 * @param s  hilera
+	 * @param c caracter a buscar
+	 * @return int 
+	 */
 	int findIndex(string s, char c) {
 		int index = -1;
 		bool found = false;
@@ -70,6 +94,13 @@ public:
 		}
 		return index;
 	}
+	/**
+	 * @brief verifica si una hilera tiene espacios entre parentesis
+	 * 
+	 * @param s hilera
+	 * @return true 
+	 * @return false 
+	 */
 	bool tieneEspaciosEntreParentesis(string s) {
 		bool tiene = false;
 		int indice = findIndex(s, ' ');
@@ -82,24 +113,59 @@ public:
 		}
 		return tiene;
 	}
+	/**
+	 * @brief verifica si la hilera es un input valido
+	 * 
+	 * @param s hilera
+	 * @return true 
+	 * @return false 
+	 */
 	bool esInputValido(string s) {  //revisa que no haya espacios ahi random metidos y que la cantidad de '(' coincida con la cantidad de ')'.
 		bool condicion1 = contarOcurrenciasCaracter(s, '(') == contarOcurrenciasCaracter(s, ')') && contarOcurrenciasCaracter(s, '(') != 0;
 		bool condicion2 = tieneEspaciosEntreParentesis(s) == false;
 		return condicion1 && condicion2;
 	}
+	/**
+	 * @brief equivalente a trim() en algunos lenguajes. Quita espacios en los extremos
+	 * 
+	 * @param s hilera
+	 */
 	void removerInicioYFin(string& s)  //quitar el primero y el ultimo parentesis.
 	{
 		s.erase(0, 1);
 		s.erase(s.length() - 1, 1);
 	}
+	/**
+	 * @brief verifica si la hilera es una entrada valida
+	 * 
+	 * @param s hilera
+	 * @return true 
+	 * @return false 
+	 */
 	bool esListaBasica(string s) {
 		return contarOcurrenciasCaracter(s, '(') == 1 && contarOcurrenciasCaracter(s, ')') == 1 && contarOcurrenciasCaracter(s, ' ') == 1;
 		//return s.length() == 5 && s[0] == '(' && isdigit(s[1]) && s[2] == ' ' && isdigit(s[3]) && s[4] == ')';
 	}
+	/**
+	 * @brief verifica si una lista en forma de hilera es solo cabeza
+	 * 
+	 * @param s hilera
+	 * @return true 
+	 * @return false 
+	 */
 	bool esSoloCabeza(string s) {
 		return contarOcurrenciasCaracter(s, '(') == 1 && contarOcurrenciasCaracter(s, ')') == 1 && contarOcurrenciasCaracter(s, ' ') == 0;
 		// return s.length() == 3 && s[0] == '(' && isdigit(s[1]) && s[2] == ')';
 	}
+	/**
+	 * @brief convierte una lista en forma de hilera en tipo List. Construye una lista
+	 * a partir de sublistas
+	 * 
+	 * @tparam T 
+	 * @param s 
+	 * @param nombre 
+	 * @return List<T>* 
+	 */
 	template <typename T>
 	List<T>* stringToList(string s, string nombre) {
 		List<T>* l = nullptr;
@@ -165,6 +231,13 @@ public:
 		return l;
 	}
 	
+	/**
+	 * @brief se usa en algunos casos especiales. Crea un objeto List<T> a partir de una hilera
+	 * 
+	 * @param s 
+	 * @param nombre 
+	 * @return List<string>* 
+	 */
 	List<string>* stringToList2(string s, string nombre)
 	{
 		List<string>* l = nullptr;
@@ -231,69 +304,3 @@ public:
 	}
 
 };
-//
-//int main()
-//{
-//    int type;
-//    std::cout << "Type: ";
-//    std::cin >> type;
-//    std::cin.ignore();
-//    std::fflush(stdin);//sin esto se vuelve loco
-//
-//    //1)Int 2)Char 3)Double 4)String
-//    if (type == 1) {
-//        //std::fflush(stdin);
-//        Decoder d1(1);
-//        //string s1 = "((123)(4 5))";
-//        std::cout << "Enter a command:";
-//        std::string s1;
-//        getline(std::cin, s1);
-//        //std::fflush(stdin);
-//        cout << "Test con enteros: " << s1 << endl;
-//        List<int>* l1 = d1.stringToList<int>(s1);
-//        cout << "Cabeza: " << l1->getHead()->toString() << endl;
-//        //cout << "Type-id del valor atomico: " << typeid(l1->getHead()->getValue()).name() << endl;
-//
-//    }
-//    else if (type == 2) {
-//        Decoder d2(2);
-//        cout << "\n";
-//        std::cout << "Enter a command:";
-//        //string s2 = "((a)(b c))";
-//        std::string s2;
-//        getline(std::cin, s2);
-//        cout << "Test con chars: " << s2 << endl;
-//        List<char>* l2 = d2.stringToList<char>(s2);
-//        cout << "Cabeza: " << l2->getHead()->toString() << endl;
-//        //cout << "Type-id del valor atomico: " << typeid(l2->getHead()->getValue()).name() << endl;
-//
-//    }
-//    else if (type == 3) {
-//        Decoder d3(3);
-//        cout << "\n";
-//        std::cout << "Enter a command:";
-//        //string s3 = "((12.3)(4 5.1))";
-//        std::string s3;
-//        getline(std::cin, s3);
-//        cout << "Test con doubles: " << s3 << endl;
-//        List<double>* l3 = d3.stringToList<double>(s3);
-//        cout << "Cabeza: " << l3->getHead()->toString() << endl;
-//        //cout << "Type-id del valor atomico: " << typeid(l3->getHead()->getValue()).name() << endl;
-//
-//    }
-//    else if (type == 4) {
-//        std::fflush(stdin);
-//        Decoder d4(4);
-//        cout << "\n";
-//        std::cout << "Enter a command:";
-//        //string s1 = "((hola)(adios patata))";
-//        std::string s4;
-//        getline(std::cin, s4);
-//        std::fflush(stdin);
-//        cout << "Test con string: " << s4 << endl;
-//        List<std::string>* l4 = d4.stringToList<std::string>(s4);
-//        cout << "Cabeza: " << l4->getHead()->toString() << endl;
-//        //cout << "Type-id del valor atomico: " << typeid(l4->getHead()->getValue()).name() << endl;
-//    }
-//    return 0;
-//}
