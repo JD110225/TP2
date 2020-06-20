@@ -156,39 +156,35 @@ class List{
          */
         std::string toString(){
             std::stringstream ss;
-            if (this->head == nullptr && this->tail == nullptr) {
+            if (isAtomicList()) {
                 ss << this->value;
             }
-            else {
-               ss << "(" << this->head->toString() << " " << this->tail->toString() << ")";
-
-                // if(this->head!=nullptr){
-                //     if(this->head->getHead()==nullptr && this->head->getTail()==nullptr && this->tail->getHead()!=nullptr){
-                //         ss << "((" << this->head->toString()<<")";
-                        
-                //     }
-                //     else{
-                //         if(this->head->getHead()==nullptr && this->head->getTail()==nullptr){
-                //             ss << "(" << this->head->toString() << " "; 
-                //         }
-                //         else{
-                //             ss<<this->tail->toString() << ")";
-                //         }
-                       
-                //     }
-                // }
-                // if(this->tail!=nullptr){
-                //     if(this->tail->getHead() == nullptr && this->tail->getTail()==nullptr && this->head!=nullptr){
-                //         ss<<"("<<this->tail->toString() << "))";
-                       
-                //     }else{
-                //        ss<<this->tail->toString() << ")";
-                //    }
-                    
-                // }
-            
+            else if(isNotAtomicList()){
+                //case (a b)
+                if(head->isAtomicList() && tail->isAtomicList()){
+                    ss << "(" << this->head->toString() << " " << this->tail->toString() << ")";
+                }
+                //case ((a)(b c))
+                else if(head->isAtomicList()){
+                    ss << "((" << this->head->toString() << ")" << this->tail->toString() << ")";
+                }
+                //case ((a b)(c))
+                else if(tail->isAtomicList()){
+                    ss << "(" << this->head->toString()<<"("<< this->tail->toString() << "))";
+                }
+                //case ((a b)(c d))
+                else if(head->isNotAtomicList() && tail->isNotAtomicList()){
+                    ss << "(" << this->head->toString()<< this->tail->toString() << ")";
+                }
             }
             return ss.str();
+        }
+
+        bool isAtomicList(){
+            return (this->head == nullptr && this->tail == nullptr);
+        }
+        bool isNotAtomicList(){
+            return (this->head != nullptr && this->tail != nullptr);
         }
         /**
          * @brief Set the Name object
