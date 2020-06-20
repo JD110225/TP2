@@ -187,6 +187,28 @@ public:
 	}
 
 	/**
+	 * @brief Este metodo verifica si lo digitado por el usuario corresponde al tipo de dato seleccionado
+	 *
+	 * @param hilera lo digitado por el usuario
+	 * @param tipoDato numero correspondiente al tipo de dato
+	 * @return true si corresponde al tipo de dato
+	 * @return false no corresponde al tipo de dato
+	 */
+	bool matchInput(std::string const& hilera, int tipoDato) {
+		bool valido = true;
+		switch (tipoDato) {
+		case 1:
+			valido = esNumero(hilera);
+			break;
+		case 3:
+			valido = esDouble(hilera);
+		default:
+			break;
+		}
+		return valido;
+	}
+
+	/**
 	 * @brief Este metodo verifica si lo solicitado por el usuario es un entero
 	 *
 	 * @param hilera lo digitado por el usuario
@@ -243,66 +265,6 @@ public:
 	}
 
 	/**
- * @brief Este metodo verifica si lo digitado por el usuario corresponde al tipo de dato seleccionado
- *
- * @param hilera lo digitado por el usuario
- * @param tipoDato numero correspondiente al tipo de dato
- * @return true si corresponde al tipo de dato
- * @return false no corresponde al tipo de dato
- */
-	bool matchInput(std::string const& hilera, int tipoDato) {
-		bool valido = true;
-		switch (tipoDato) {
-		case 1:
-			valido = esNumero(hilera);
-			break;
-		case 3:
-			valido = esDouble(hilera);
-		default:
-			break;
-		}
-		return valido;
-	}
-
-	/**
-	 * @brief Este metodo busca un elemento en una lista especifica
-	 *
-	 * @param instrucciones instruccion del usuario separada por strings
-	 */
-	void revisarExiste(std::vector<std::string> instrucciones) {
-		if (decoder->getDataTypeID() == 4) {
-			std::vector<std::string> existe = terminal.separarInstruccion(instrucciones[1], '.');//check if real		
-			List<std::string>* aux1 = getList2(existe);
-			if (aux1) {
-				if (aux1->find(instrucciones[2])) {
-					interfaz.mostrarMensaje("Elemento Encontrado");
-				}
-				else {
-					interfaz.mostrarError("Elemento No Encontrado");
-				}
-			}
-			else {
-				interfaz.mostrarError("Estructura Invalida de la Lista");
-			}
-		}
-		else {
-			std::vector<std::string> existe = terminal.separarInstruccion(instrucciones[1], '.');//check if real		
-			List<T>* aux2 = getList(existe);
-			if (aux2 && matchInput(instrucciones[2],decoder->getDataTypeID())) {
-				if (aux2->find(decoder->dataTypeConverter<T>(instrucciones[2]))) {
-					interfaz.mostrarMensaje("Elemento Encontrado");
-				}
-				else {
-					interfaz.mostrarError("Elemento No Encontrado");
-				}
-			}
-			else {
-				interfaz.mostrarError("Estructura Invalida de la Lista");
-			}
-		}
-	}
-
-	/**
 	 * @brief Este metodo busca una lista especifica, si la encuentra, la imprime
 	 *
 	 * @param instrucciones instruccion del usuario separada por strings
@@ -342,9 +304,34 @@ public:
 		ss << "4. Si quiere ver alguna lista en especifico digite \"buscar lista\" \n \t Ejemplos Validos:";
 		ss << "\n \t \t buscar,lista1";
 		ss << "\n \t \t buscar,lista1.cabeza.cola";
-		ss << "\n 5. Si quiere saber si un metodo existe digite \"existe\" de esta manera: ";
-		ss << "\n \t Instruccion,nombreDeLista,elementoABuscar \n \t Ejemplo valido: existe,lista1.cabeza,2";
 		interfaz.mostrarMensaje(ss.str());
+	}
+
+	void revisarExiste(std::vector<std::string> instrucciones) {
+		if (decoder->getDataTypeID() == 4) {
+			std::vector<std::string> existe = terminal.separarInstruccion(instrucciones[1], '.');//check if real		
+			List<std::string>* aux1 = getList2(existe);
+			if (aux1) {
+				if (aux1->find(instrucciones[2])) {
+					interfaz.mostrarMensaje("Elemento Encontrado");
+				}
+				else {
+					interfaz.mostrarError("Elemento No Encontrado");
+				}
+			}
+		}
+		else {
+			std::vector<std::string> existe = terminal.separarInstruccion(instrucciones[1], '.');//check if real		
+			List<T>* aux2 = getList(existe);
+			if (aux2) {
+				if (aux2->find(decoder->dataTypeConverter<T>(instrucciones[2]))) {
+					interfaz.mostrarMensaje("Elemento Encontrado");
+				}
+				else {
+					interfaz.mostrarError("Elemento No Encontrado");
+				}
+			}
+		}
 	}
 
 	/**
