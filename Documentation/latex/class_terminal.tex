@@ -1,0 +1,70 @@
+\doxysection{Terminal Class Reference}
+\label{class_terminal}\index{Terminal@{Terminal}}
+
+
+Esta clase se encarga de identificar y separar las instrucciones de la terminal.  
+
+
+
+
+{\ttfamily \#include $<$Terminal.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::string $>$ \textbf{ separar\+Instruccion} (std\+::string const \&instruccion, char separador)
+\begin{DoxyCompactList}\small\item\em Este método separa las partes de una instruccion en strings, recibe la instruccion y un separador para especificar cuando termina una palabra. \end{DoxyCompactList}\item 
+int \textbf{ identificar\+Comando} (std\+::string const \&comando)
+\begin{DoxyCompactList}\small\item\em Este metodo identifica el comando digitado por el usuario en la terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase se encarga de identificar y separar las instrucciones de la terminal. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_terminal_a3c5dfd0d985c71ddba448d3783b2113d}} 
+\index{Terminal@{Terminal}!identificarComando@{identificarComando}}
+\index{identificarComando@{identificarComando}!Terminal@{Terminal}}
+\doxysubsubsection{identificarComando()}
+{\footnotesize\ttfamily int Terminal\+::identificar\+Comando (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{comando }\end{DoxyParamCaption})}
+
+
+
+Este metodo identifica el comando digitado por el usuario en la terminal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comando} & palabra clave digitada por el usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int numero asociado al comando 
+\end{DoxyReturn}
+\mbox{\label{class_terminal_a1b3cf156d3864b76d2b76a9f1d359ed3}} 
+\index{Terminal@{Terminal}!separarInstruccion@{separarInstruccion}}
+\index{separarInstruccion@{separarInstruccion}!Terminal@{Terminal}}
+\doxysubsubsection{separarInstruccion()}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::string $>$ Terminal\+::separar\+Instruccion (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{instruccion,  }\item[{char}]{separador }\end{DoxyParamCaption})}
+
+
+
+Este método separa las partes de una instruccion en strings, recibe la instruccion y un separador para especificar cuando termina una palabra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instruccion} & instruccion digitada por el usuario \\
+\hline
+{\em separador} & separador de palabras \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::string$>$ la instruccion digitada por el usuario separada 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/josed/\+Desktop/\+T\+P2/\+Repo/\+T\+P2/\textbf{ Terminal.\+h}\item 
+C\+:/\+Users/josed/\+Desktop/\+T\+P2/\+Repo/\+T\+P2/\textbf{ Terminal.\+cpp}\end{DoxyCompactItemize}

@@ -180,9 +180,21 @@ class List{
             return ss.str();
         }
 
+        /**
+         * @brief an atomic list is like (3) or the numbers is (3 5), 3 is atomic value, 5 too.
+         * 
+         * @return true 
+         * @return false 
+         */
         bool isAtomicList(){
             return (this->head == nullptr && this->tail == nullptr);
         }
+        /**
+         * @brief an non atomic value is like this: (a b)
+         * 
+         * @return true 
+         * @return false 
+         */
         bool isNotAtomicList(){
             return (this->head != nullptr && this->tail != nullptr);
         }

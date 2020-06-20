@@ -1,0 +1,270 @@
+\doxysection{Decoder Class Reference}
+\label{class_decoder}\index{Decoder@{Decoder}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Decoder} (int data\+Type\+ID)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxyref{Decoder}{p.}{class_decoder} object. \end{DoxyCompactList}\item 
+int \textbf{ get\+Data\+Type\+ID} ()
+\begin{DoxyCompactList}\small\item\em Get the Data Type I D object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \textbf{ data\+Type\+Converter} (string s)
+\begin{DoxyCompactList}\small\item\em Convierte un string a su repectivo tipo de dato dependiendo del data\+Type\+ID. \end{DoxyCompactList}\item 
+int \textbf{ contar\+Ocurrencias\+Caracter} (string s, char c)
+\begin{DoxyCompactList}\small\item\em cuenta las ocurrencias de un caracter \end{DoxyCompactList}\item 
+int \textbf{ find\+Index} (string s, char c)
+\begin{DoxyCompactList}\small\item\em encuentra la posicion de un caracter en una hilera \end{DoxyCompactList}\item 
+bool \textbf{ tiene\+Espacios\+Entre\+Parentesis} (string s)
+\begin{DoxyCompactList}\small\item\em verifica si una hilera tiene espacios entre parentesis \end{DoxyCompactList}\item 
+bool \textbf{ es\+Input\+Valido} (string s)
+\begin{DoxyCompactList}\small\item\em verifica si la hilera es un input valido \end{DoxyCompactList}\item 
+void \textbf{ remover\+Inicio\+Y\+Fin} (string \&s)
+\begin{DoxyCompactList}\small\item\em equivalente a trim() en algunos lenguajes. Quita espacios en los extremos \end{DoxyCompactList}\item 
+bool \textbf{ es\+Lista\+Basica} (string s)
+\begin{DoxyCompactList}\small\item\em verifica si la hilera es una entrada valida \end{DoxyCompactList}\item 
+bool \textbf{ es\+Solo\+Cabeza} (string s)
+\begin{DoxyCompactList}\small\item\em verifica si una lista en forma de hilera es solo cabeza \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\textbf{ List}$<$ T $>$ $\ast$ \textbf{ string\+To\+List} (string s, string nombre)
+\begin{DoxyCompactList}\small\item\em convierte una lista en forma de hilera en tipo \doxyref{List}{p.}{class_list}. Construye una lista a partir de sublistas \end{DoxyCompactList}\item 
+\textbf{ List}$<$ string $>$ $\ast$ \textbf{ string\+To\+List2} (string s, string nombre)
+\begin{DoxyCompactList}\small\item\em se usa en algunos casos especiales. Crea un objeto List$<$\+T$>$ a partir de una hilera \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_decoder_a593aa255887d59fb85a01002880cdf6e}} 
+\index{Decoder@{Decoder}!Decoder@{Decoder}}
+\index{Decoder@{Decoder}!Decoder@{Decoder}}
+\doxysubsubsection{Decoder()}
+{\footnotesize\ttfamily Decoder\+::\+Decoder (\begin{DoxyParamCaption}\item[{int}]{data\+Type\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxyref{Decoder}{p.}{class_decoder} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+Type\+ID} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_decoder_a17df1eb0eb3654512c365bba430b6696}} 
+\index{Decoder@{Decoder}!contarOcurrenciasCaracter@{contarOcurrenciasCaracter}}
+\index{contarOcurrenciasCaracter@{contarOcurrenciasCaracter}!Decoder@{Decoder}}
+\doxysubsubsection{contarOcurrenciasCaracter()}
+{\footnotesize\ttfamily int Decoder\+::contar\+Ocurrencias\+Caracter (\begin{DoxyParamCaption}\item[{string}]{s,  }\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+cuenta las ocurrencias de un caracter 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & hilera a ser recorrida \\
+\hline
+{\em c} & caracter a ser contado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_a583a8d7575658aea9896a0ca7b8376f0}} 
+\index{Decoder@{Decoder}!dataTypeConverter@{dataTypeConverter}}
+\index{dataTypeConverter@{dataTypeConverter}!Decoder@{Decoder}}
+\doxysubsubsection{dataTypeConverter()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T Decoder\+::data\+Type\+Converter (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convierte un string a su repectivo tipo de dato dependiendo del data\+Type\+ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em T} & \\
+\hline
+{\em s} & hilera a ser casteada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T dato casteado 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_a5a4708c994967ad2952ad4db45dcb9b6}} 
+\index{Decoder@{Decoder}!esInputValido@{esInputValido}}
+\index{esInputValido@{esInputValido}!Decoder@{Decoder}}
+\doxysubsubsection{esInputValido()}
+{\footnotesize\ttfamily bool Decoder\+::es\+Input\+Valido (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+verifica si la hilera es un input valido 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & hilera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_ad053abb45ff39ded85e63761258b1829}} 
+\index{Decoder@{Decoder}!esListaBasica@{esListaBasica}}
+\index{esListaBasica@{esListaBasica}!Decoder@{Decoder}}
+\doxysubsubsection{esListaBasica()}
+{\footnotesize\ttfamily bool Decoder\+::es\+Lista\+Basica (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+verifica si la hilera es una entrada valida 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & hilera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_a3e7637d5f69e5c2a7905313fe5ac8133}} 
+\index{Decoder@{Decoder}!esSoloCabeza@{esSoloCabeza}}
+\index{esSoloCabeza@{esSoloCabeza}!Decoder@{Decoder}}
+\doxysubsubsection{esSoloCabeza()}
+{\footnotesize\ttfamily bool Decoder\+::es\+Solo\+Cabeza (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+verifica si una lista en forma de hilera es solo cabeza 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & hilera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_a791fa1d62cae38c5533cd47c51cd8d58}} 
+\index{Decoder@{Decoder}!findIndex@{findIndex}}
+\index{findIndex@{findIndex}!Decoder@{Decoder}}
+\doxysubsubsection{findIndex()}
+{\footnotesize\ttfamily int Decoder\+::find\+Index (\begin{DoxyParamCaption}\item[{string}]{s,  }\item[{char}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+encuentra la posicion de un caracter en una hilera 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & hilera \\
+\hline
+{\em c} & caracter a buscar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_adf01269ac3db68cd432a0ea016738dde}} 
+\index{Decoder@{Decoder}!getDataTypeID@{getDataTypeID}}
+\index{getDataTypeID@{getDataTypeID}!Decoder@{Decoder}}
+\doxysubsubsection{getDataTypeID()}
+{\footnotesize\ttfamily int Decoder\+::get\+Data\+Type\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Data Type I D object. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_aa2d64e7e53f496f388cd08652534259e}} 
+\index{Decoder@{Decoder}!removerInicioYFin@{removerInicioYFin}}
+\index{removerInicioYFin@{removerInicioYFin}!Decoder@{Decoder}}
+\doxysubsubsection{removerInicioYFin()}
+{\footnotesize\ttfamily void Decoder\+::remover\+Inicio\+Y\+Fin (\begin{DoxyParamCaption}\item[{string \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+equivalente a trim() en algunos lenguajes. Quita espacios en los extremos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & hilera \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_decoder_aa8ad74cd0807cc1223d752ba1ac238ac}} 
+\index{Decoder@{Decoder}!stringToList@{stringToList}}
+\index{stringToList@{stringToList}!Decoder@{Decoder}}
+\doxysubsubsection{stringToList()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ List}$<$T$>$$\ast$ Decoder\+::string\+To\+List (\begin{DoxyParamCaption}\item[{string}]{s,  }\item[{string}]{nombre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+convierte una lista en forma de hilera en tipo \doxyref{List}{p.}{class_list}. Construye una lista a partir de sublistas 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+{\em nombre} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List$<$\+T$>$$\ast$ 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_aca83a0f327c2f5f083a4df558d00b9d9}} 
+\index{Decoder@{Decoder}!stringToList2@{stringToList2}}
+\index{stringToList2@{stringToList2}!Decoder@{Decoder}}
+\doxysubsubsection{stringToList2()}
+{\footnotesize\ttfamily \textbf{ List}$<$string$>$$\ast$ Decoder\+::string\+To\+List2 (\begin{DoxyParamCaption}\item[{string}]{s,  }\item[{string}]{nombre }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+se usa en algunos casos especiales. Crea un objeto List$<$\+T$>$ a partir de una hilera 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \\
+\hline
+{\em nombre} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List$<$string$>$$\ast$ 
+\end{DoxyReturn}
+\mbox{\label{class_decoder_a756d0738884e0cb3026ce42a60fa38dc}} 
+\index{Decoder@{Decoder}!tieneEspaciosEntreParentesis@{tieneEspaciosEntreParentesis}}
+\index{tieneEspaciosEntreParentesis@{tieneEspaciosEntreParentesis}!Decoder@{Decoder}}
+\doxysubsubsection{tieneEspaciosEntreParentesis()}
+{\footnotesize\ttfamily bool Decoder\+::tiene\+Espacios\+Entre\+Parentesis (\begin{DoxyParamCaption}\item[{string}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+verifica si una hilera tiene espacios entre parentesis 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & hilera \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/josed/\+Desktop/\+T\+P2/\+Repo/\+T\+P2/Decoder.\+h\end{DoxyCompactItemize}

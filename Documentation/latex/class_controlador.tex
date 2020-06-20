@@ -1,0 +1,339 @@
+\doxysection{Controlador$<$ T $>$ Class Template Reference}
+\label{class_controlador}\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ $\sim$\+Controlador} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \doxyref{Controlador}{p.}{class_controlador} object. \end{DoxyCompactList}\item 
+\textbf{ Controlador} (int tipo\+Dato)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxyref{Controlador}{p.}{class_controlador} object. \end{DoxyCompactList}\item 
+void \textbf{ run} ()
+\begin{DoxyCompactList}\small\item\em Este metodo inicia el programa. \end{DoxyCompactList}\item 
+void \textbf{ realizar\+Accion} (std\+::vector$<$ std\+::string $>$ instrucciones, int \&accion)
+\begin{DoxyCompactList}\small\item\em Este metodo, segun la accion, procede a realizar lo solicitado por el usuario. \end{DoxyCompactList}\item 
+void \textbf{ crear\+Lista} (std\+::vector$<$ std\+::string $>$ instrucciones)
+\begin{DoxyCompactList}\small\item\em Este metodo decide cual tipo de lista es la que se va a crear. \end{DoxyCompactList}\item 
+void \textbf{ crear\+Lista\+Con\+Parentesis} (std\+::vector$<$ std\+::string $>$ instrucciones)
+\begin{DoxyCompactList}\small\item\em Este metodo crear una lista a partir de una hilera de datos digitados por el usuario. \end{DoxyCompactList}\item 
+void \textbf{ crear\+Lista\+Con\+Comandos} (std\+::vector$<$ std\+::string $>$ instrucciones)
+\begin{DoxyCompactList}\small\item\em Este metodo crear una lista a partir de listas ya existentes. \end{DoxyCompactList}\item 
+bool \textbf{ match\+Input} (std\+::string const \&hilera, int tipo\+Dato)
+\begin{DoxyCompactList}\small\item\em Este metodo verifica si lo digitado por el usuario corresponde al tipo de dato seleccionado. \end{DoxyCompactList}\item 
+bool \textbf{ es\+Numero} (std\+::string const \&hilera)
+\begin{DoxyCompactList}\small\item\em Este metodo verifica si lo solicitado por el usuario es un entero. \end{DoxyCompactList}\item 
+bool \textbf{ es\+Double} (std\+::string const \&hilera)
+\begin{DoxyCompactList}\small\item\em Este metodo verifica si lo solicitado por el usuario es un double. \end{DoxyCompactList}\item 
+void \textbf{ mostrar\+Listas} ()
+\begin{DoxyCompactList}\small\item\em Este metodo muestra todas las listas. \end{DoxyCompactList}\item 
+void \textbf{ buscar} (std\+::vector$<$ std\+::string $>$ instrucciones)
+\begin{DoxyCompactList}\small\item\em Este metodo busca una lista especifica, si la encuentra, la imprime. \end{DoxyCompactList}\item 
+void \textbf{ mostrar\+Instrucciones} ()
+\begin{DoxyCompactList}\small\item\em Este metodo le muestra las instrucciones del programa al usuario. \end{DoxyCompactList}\item 
+\mbox{\label{class_controlador_a620bc290307958c6d66906234f736d91}} 
+void {\bfseries revisar\+Existe} (std\+::vector$<$ std\+::string $>$ instrucciones)
+\item 
+\textbf{ List}$<$ T $>$ $\ast$ \textbf{ get\+List} (std\+::vector$<$ std\+::string $>$ instrucciones)
+\begin{DoxyCompactList}\small\item\em Este metodo, busca la lista especificada por el usuario, si existe, la devuelve Este metodo trabaja con hileras de la forma cabeza.\+cola.\+cabeza y crea la lista correspondiente. \end{DoxyCompactList}\item 
+\textbf{ List}$<$ std\+::string $>$ $\ast$ \textbf{ get\+List2} (std\+::vector$<$ std\+::string $>$ instrucciones)
+\begin{DoxyCompactList}\small\item\em Este metodo, busca la lista especificada por el usuario, si existe, la devuelve. \end{DoxyCompactList}\item 
+void \textbf{ borrar\+Listas} ()
+\begin{DoxyCompactList}\small\item\em Este metodo hace los \char`\"{}deletes\char`\"{} de las listas. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, \textbf{ List}$<$ T $>$ $\ast$ $>$ \textbf{ get\+Map} ()
+\begin{DoxyCompactList}\small\item\em Get the Map object. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, \textbf{ List}$<$ T $>$ $\ast$ $>$ \textbf{ get\+Map2} ()
+\begin{DoxyCompactList}\small\item\em Get the Map2 object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_controlador_a58cd371a5c2486aee59523268ffea238}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!````~Controlador@{$\sim$Controlador}}
+\index{````~Controlador@{$\sim$Controlador}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{$\sim$Controlador()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ Controlador}$<$ T $>$\+::$\sim$\textbf{ Controlador} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroy the \doxyref{Controlador}{p.}{class_controlador} object. 
+
+\mbox{\label{class_controlador_a1a09fa0cb740fce0870d814936387b20}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!Controlador@{Controlador}}
+\index{Controlador@{Controlador}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{Controlador()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ Controlador}$<$ T $>$\+::\textbf{ Controlador} (\begin{DoxyParamCaption}\item[{int}]{tipo\+Dato }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxyref{Controlador}{p.}{class_controlador} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tipo\+Dato} & numero correspondiente al tipo de dato seleccionado \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_controlador_a586cb6f70a826210ff95d9a464311747}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!borrarListas@{borrarListas}}
+\index{borrarListas@{borrarListas}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{borrarListas()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::borrar\+Listas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo hace los \char`\"{}deletes\char`\"{} de las listas. 
+
+\mbox{\label{class_controlador_affbcb1ec8264b89739b43b55f479f74c}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!buscar@{buscar}}
+\index{buscar@{buscar}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{buscar()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::buscar (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{instrucciones }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo busca una lista especifica, si la encuentra, la imprime. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instrucciones} & instruccion del usuario separada por strings \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_controlador_affa3ebb8089add5574a0e9e5be362e7a}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!crearLista@{crearLista}}
+\index{crearLista@{crearLista}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{crearLista()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::crear\+Lista (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{instrucciones }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo decide cual tipo de lista es la que se va a crear. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instrucciones} & instruccion del usuario separada por strings \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_controlador_a76a2d8822c9e983b03707aafc3fb75c0}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!crearListaConComandos@{crearListaConComandos}}
+\index{crearListaConComandos@{crearListaConComandos}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{crearListaConComandos()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::crear\+Lista\+Con\+Comandos (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{instrucciones }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo crear una lista a partir de listas ya existentes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instrucciones} & instruccion del usuario separada por strings \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_controlador_a73a317bfc47acff42e01200391621346}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!crearListaConParentesis@{crearListaConParentesis}}
+\index{crearListaConParentesis@{crearListaConParentesis}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{crearListaConParentesis()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::crear\+Lista\+Con\+Parentesis (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{instrucciones }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo crear una lista a partir de una hilera de datos digitados por el usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instrucciones} & instruccion del usuario separada por strings \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_controlador_a40e86a808ab964bf6a45c0e1ac735b08}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!esDouble@{esDouble}}
+\index{esDouble@{esDouble}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{esDouble()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \textbf{ Controlador}$<$ T $>$\+::es\+Double (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{hilera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo verifica si lo solicitado por el usuario es un double. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hilera} & lo digitado por el usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si es un double 
+
+false no es un double 
+\end{DoxyReturn}
+\mbox{\label{class_controlador_a1dffcd512bb1d304d9e2733e10aaa780}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!esNumero@{esNumero}}
+\index{esNumero@{esNumero}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{esNumero()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \textbf{ Controlador}$<$ T $>$\+::es\+Numero (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{hilera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo verifica si lo solicitado por el usuario es un entero. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hilera} & lo digitado por el usuario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si es un entero 
+
+false no es un entero 
+\end{DoxyReturn}
+\mbox{\label{class_controlador_a432fc16413972b15ab1aab36ea907f05}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!getList@{getList}}
+\index{getList@{getList}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{getList()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ List}$<$T$>$$\ast$ \textbf{ Controlador}$<$ T $>$\+::get\+List (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{instrucciones }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo, busca la lista especificada por el usuario, si existe, la devuelve Este metodo trabaja con hileras de la forma cabeza.\+cola.\+cabeza y crea la lista correspondiente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instrucciones} & instruccion del usuario separada por strings \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List$<$\+T$>$$\ast$ retorna la lista solicitada o nullptr sino fue encontrada 
+\end{DoxyReturn}
+\mbox{\label{class_controlador_a3a4cbb0c4a87a0043178dd5f465c3de4}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!getList2@{getList2}}
+\index{getList2@{getList2}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{getList2()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\textbf{ List}$<$std\+::string$>$$\ast$ \textbf{ Controlador}$<$ T $>$\+::get\+List2 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{instrucciones }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo, busca la lista especificada por el usuario, si existe, la devuelve. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instrucciones} & instruccion del usuario separada por strings \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List$<$\+T$>$$\ast$ retorna la lista solicitada o nullptr sino fue encontrada 
+\end{DoxyReturn}
+\mbox{\label{class_controlador_a856dee75c787877eb09125b25e0c23f8}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!getMap@{getMap}}
+\index{getMap@{getMap}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{getMap()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::map$<$std\+::string, \textbf{ List}$<$T$>$$\ast$$>$ \textbf{ Controlador}$<$ T $>$\+::get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Map object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::map$<$std\+::string, List$<$\+T$>$$\ast$$>$ 
+\end{DoxyReturn}
+\mbox{\label{class_controlador_abe2744a96ba0924f059efbd0565797fe}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!getMap2@{getMap2}}
+\index{getMap2@{getMap2}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{getMap2()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::map$<$std\+::string, \textbf{ List}$<$T$>$$\ast$$>$ \textbf{ Controlador}$<$ T $>$\+::get\+Map2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Map2 object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::map$<$std\+::string, List$<$\+T$>$$\ast$$>$ 
+\end{DoxyReturn}
+\mbox{\label{class_controlador_a49237c9bc6ba3eb182ef5e3fee4b3b48}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!matchInput@{matchInput}}
+\index{matchInput@{matchInput}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{matchInput()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \textbf{ Controlador}$<$ T $>$\+::match\+Input (\begin{DoxyParamCaption}\item[{std\+::string const \&}]{hilera,  }\item[{int}]{tipo\+Dato }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo verifica si lo digitado por el usuario corresponde al tipo de dato seleccionado. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hilera} & lo digitado por el usuario \\
+\hline
+{\em tipo\+Dato} & numero correspondiente al tipo de dato \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si corresponde al tipo de dato 
+
+false no corresponde al tipo de dato 
+\end{DoxyReturn}
+\mbox{\label{class_controlador_a008bb526c71f493f003d622d4205b457}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!mostrarInstrucciones@{mostrarInstrucciones}}
+\index{mostrarInstrucciones@{mostrarInstrucciones}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{mostrarInstrucciones()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::mostrar\+Instrucciones (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo le muestra las instrucciones del programa al usuario. 
+
+\mbox{\label{class_controlador_a68a1e877e92e99577b5afddec4597b85}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!mostrarListas@{mostrarListas}}
+\index{mostrarListas@{mostrarListas}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{mostrarListas()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::mostrar\+Listas (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo muestra todas las listas. 
+
+\mbox{\label{class_controlador_a20a47c089e3ab01f64225fa15caf49f1}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!realizarAccion@{realizarAccion}}
+\index{realizarAccion@{realizarAccion}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{realizarAccion()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::realizar\+Accion (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$}]{instrucciones,  }\item[{int \&}]{accion }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo, segun la accion, procede a realizar lo solicitado por el usuario. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instrucciones} & instruccion del usuario separada por strings \\
+\hline
+{\em accion} & numero correspondiente al tipo de dato seleccionado \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_controlador_a3f3f1a30583800f73d09462732e6e170}} 
+\index{Controlador$<$ T $>$@{Controlador$<$ T $>$}!run@{run}}
+\index{run@{run}!Controlador$<$ T $>$@{Controlador$<$ T $>$}}
+\doxysubsubsection{run()}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \textbf{ Controlador}$<$ T $>$\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Este metodo inicia el programa. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/josed/\+Desktop/\+T\+P2/\+Repo/\+T\+P2/\textbf{ Controlador.\+h}\end{DoxyCompactItemize}

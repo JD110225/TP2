@@ -1,0 +1,342 @@
+\doxysection{List$<$ T $>$ Class Template Reference}
+\label{class_list}\index{List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ List} (\textbf{ List} $\ast$head, \textbf{ List} $\ast$tail, T null\+Value)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxyref{List}{p.}{class_list} object. \end{DoxyCompactList}\item 
+\textbf{ List} (\textbf{ List} $\ast$head, \textbf{ List} $\ast$tail, std\+::string name, T null\+Value)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxyref{List}{p.}{class_list} object. \end{DoxyCompactList}\item 
+\textbf{ List} (T value)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxyref{List}{p.}{class_list} object of an list atomic value. \end{DoxyCompactList}\item 
+\textbf{ List} (T value, std\+::string name)
+\begin{DoxyCompactList}\small\item\em Construct a new \doxyref{List}{p.}{class_list} object of an list atomic value. \end{DoxyCompactList}\item 
+\textbf{ $\sim$\+List} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \doxyref{List}{p.}{class_list} object. \end{DoxyCompactList}\item 
+\textbf{ List} $\ast$ \textbf{ get\+Head} ()
+\begin{DoxyCompactList}\small\item\em Get the Head object. \end{DoxyCompactList}\item 
+\textbf{ List} $\ast$ \textbf{ get\+Tail} ()
+\begin{DoxyCompactList}\small\item\em Get the Tail object. \end{DoxyCompactList}\item 
+void \textbf{ add\+Head} (\textbf{ List} $\ast$head)
+\begin{DoxyCompactList}\small\item\em Adds a head. \end{DoxyCompactList}\item 
+void \textbf{ add\+Tail} (\textbf{ List} $\ast$tail)
+\begin{DoxyCompactList}\small\item\em Adds a tail. \end{DoxyCompactList}\item 
+bool \textbf{ find} (T value)
+\begin{DoxyCompactList}\small\item\em find an atomic value in the list in a recursive way \end{DoxyCompactList}\item 
+T \textbf{ get\+Value} ()
+\begin{DoxyCompactList}\small\item\em Get the Value object. \end{DoxyCompactList}\item 
+std\+::string \textbf{ to\+String} ()
+\begin{DoxyCompactList}\small\item\em return a string with a formatted list. Ex ((3 6) (5 2)) \end{DoxyCompactList}\item 
+bool \textbf{ is\+Atomic\+List} ()
+\begin{DoxyCompactList}\small\item\em an atomic list is like (3) or the numbers is (3 5), 3 is atomic value, 5 too. \end{DoxyCompactList}\item 
+bool \textbf{ is\+Not\+Atomic\+List} ()
+\begin{DoxyCompactList}\small\item\em an non atomic value is like this\+: (a b) \end{DoxyCompactList}\item 
+void \textbf{ set\+Name} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Set the Name object. \end{DoxyCompactList}\item 
+std\+::string \textbf{ get\+Name} ()
+\begin{DoxyCompactList}\small\item\em Get the Name object. \end{DoxyCompactList}\item 
+\textbf{ List} $\ast$ \textbf{ get\+Sub\+List} (std\+::string name)
+\begin{DoxyCompactList}\small\item\em Get the Sub \doxyref{List}{p.}{class_list} with the name param. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{class_list_afa67dd681f2b311ea815e4701adf45fb}} 
+\textbf{ List} $\ast$ {\bfseries head}
+\item 
+\mbox{\label{class_list_af4e6940a648ac251c36a9ac635530031}} 
+\textbf{ List} $\ast$ {\bfseries tail}
+\item 
+\mbox{\label{class_list_a9d5d9c4ec56d10e1f756de27d4e72dd9}} 
+T {\bfseries value}
+\item 
+\mbox{\label{class_list_ac4a006bbac7e0c091c2657bc77c7731b}} 
+std\+::string {\bfseries name}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{class_list_a08819ad4f228fbb4852ef3420542dedf}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!List@{List}}
+\index{List@{List}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{List()\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$ T $>$\+::\textbf{ List} (\begin{DoxyParamCaption}\item[{\textbf{ List}$<$ T $>$ $\ast$}]{head,  }\item[{\textbf{ List}$<$ T $>$ $\ast$}]{tail,  }\item[{T}]{null\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxyref{List}{p.}{class_list} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & a list pointer \\
+\hline
+{\em tail} & a list pointer \\
+\hline
+{\em null\+Value} & is only used in atomic values \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_list_a8f31d4f8835e34c230b2c99b4d670784}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!List@{List}}
+\index{List@{List}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{List()\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$ T $>$\+::\textbf{ List} (\begin{DoxyParamCaption}\item[{\textbf{ List}$<$ T $>$ $\ast$}]{head,  }\item[{\textbf{ List}$<$ T $>$ $\ast$}]{tail,  }\item[{std\+::string}]{name,  }\item[{T}]{null\+Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxyref{List}{p.}{class_list} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & a list pointer \\
+\hline
+{\em tail} & a list pointer \\
+\hline
+{\em name} & name of the list \\
+\hline
+{\em null\+Value} & \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_list_a975c4cafd9dc0c7725236127441634c7}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!List@{List}}
+\index{List@{List}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{List()\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$ T $>$\+::\textbf{ List} (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxyref{List}{p.}{class_list} object of an list atomic value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & value of the atomic value. Ex\+: In (3 5) 3 is atomic value and 5 is an atomic value. Each atomic value is a list by itsetf \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_list_a260af09e917a5ca9f7e0c66635aeadfd}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!List@{List}}
+\index{List@{List}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{List()\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$ T $>$\+::\textbf{ List} (\begin{DoxyParamCaption}\item[{T}]{value,  }\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \doxyref{List}{p.}{class_list} object of an list atomic value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & value of the atomic value. Ex\+: In (3 5) 3 is atomic value and 5 is an atomic value. Each atomic value is a list by itsetf \\
+\hline
+{\em name} & name of the list \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_list_a2b58189090f6e5ce52939c9195e59e85}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!````~List@{$\sim$List}}
+\index{````~List@{$\sim$List}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{$\sim$List()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$<$ T $>$\+::$\sim$\textbf{ List} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroy the \doxyref{List}{p.}{class_list} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_list_af452c2bcafa02bd0ab963de102474895}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!addHead@{addHead}}
+\index{addHead@{addHead}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{addHead()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \textbf{ List}$<$ T $>$\+::add\+Head (\begin{DoxyParamCaption}\item[{\textbf{ List}$<$ T $>$ $\ast$}]{head }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a head. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em head} & A head list pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_list_a84086d0b8a6f0850fa56abc6c411bd91}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!addTail@{addTail}}
+\index{addTail@{addTail}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{addTail()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \textbf{ List}$<$ T $>$\+::add\+Tail (\begin{DoxyParamCaption}\item[{\textbf{ List}$<$ T $>$ $\ast$}]{tail }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a tail. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tail} & A tail list pointer \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_list_a88c8dbc2c0f7e8dbf834c6cdc193d3eb}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!find@{find}}
+\index{find@{find}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{find()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \textbf{ List}$<$ T $>$\+::find (\begin{DoxyParamCaption}\item[{T}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+find an atomic value in the list in a recursive way 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & atomic value to be searched \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\label{class_list_a170317266282b4326ebfc0042b7c4460}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!getHead@{getHead}}
+\index{getHead@{getHead}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{getHead()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$\ast$ \textbf{ List}$<$ T $>$\+::get\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Head object. 
+
+\begin{DoxyReturn}{Returns}
+List$\ast$ head pointer 
+\end{DoxyReturn}
+\mbox{\label{class_list_a395f07bb8c9c78f9e997d1e9b01767a1}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!getName@{getName}}
+\index{getName@{getName}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{getName()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::string \textbf{ List}$<$ T $>$\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Name object. 
+
+\begin{DoxyReturn}{Returns}
+std\+::string name 
+\end{DoxyReturn}
+\mbox{\label{class_list_ad90c4277c4a0b980495b46e39e370305}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!getSubList@{getSubList}}
+\index{getSubList@{getSubList}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{getSubList()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$\ast$ \textbf{ List}$<$ T $>$\+::get\+Sub\+List (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Sub \doxyref{List}{p.}{class_list} with the name param. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & name of the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+List$\ast$ a sublist pointer 
+\end{DoxyReturn}
+\mbox{\label{class_list_ad6741e1c5bc5ae650c8aa3eca5495316}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!getTail@{getTail}}
+\index{getTail@{getTail}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{getTail()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\textbf{ List}$\ast$ \textbf{ List}$<$ T $>$\+::get\+Tail (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Tail object. 
+
+\begin{DoxyReturn}{Returns}
+List$\ast$ tail pointer 
+\end{DoxyReturn}
+\mbox{\label{class_list_a3f51d0fdc772ff254e230cf127c907e5}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!getValue@{getValue}}
+\index{getValue@{getValue}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{getValue()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \textbf{ List}$<$ T $>$\+::get\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the Value object. 
+
+\begin{DoxyReturn}{Returns}
+T 
+\end{DoxyReturn}
+\mbox{\label{class_list_a1d37bf2639138bfeb1b6e6762f0c2dbd}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!isAtomicList@{isAtomicList}}
+\index{isAtomicList@{isAtomicList}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{isAtomicList()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \textbf{ List}$<$ T $>$\+::is\+Atomic\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+an atomic list is like (3) or the numbers is (3 5), 3 is atomic value, 5 too. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\label{class_list_a8a39930bf7efa6332e846835a8ffe4e0}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!isNotAtomicList@{isNotAtomicList}}
+\index{isNotAtomicList@{isNotAtomicList}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{isNotAtomicList()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \textbf{ List}$<$ T $>$\+::is\+Not\+Atomic\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+an non atomic value is like this\+: (a b) 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\label{class_list_a49f1ca9925805d53bccbd5acf32f2cfa}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!setName@{setName}}
+\index{setName@{setName}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{setName()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \textbf{ List}$<$ T $>$\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the Name object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & name \\
+\hline
+\end{DoxyParams}
+\mbox{\label{class_list_a686737a0255495550080498e2a4849b2}} 
+\index{List$<$ T $>$@{List$<$ T $>$}!toString@{toString}}
+\index{toString@{toString}!List$<$ T $>$@{List$<$ T $>$}}
+\doxysubsubsection{toString()}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::string \textbf{ List}$<$ T $>$\+::to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return a string with a formatted list. Ex ((3 6) (5 2)) 
+
+\begin{DoxyReturn}{Returns}
+std\+::string formatted list 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/josed/\+Desktop/\+T\+P2/\+Repo/\+T\+P2/\textbf{ List.\+h}\end{DoxyCompactItemize}

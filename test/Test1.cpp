@@ -14,7 +14,7 @@
 class CrearLista : public ::testing::Test {
  protected:
   void SetUp() override {
-    //reversar memoria para las listas
+    //reversar memoria para las listas y para los decoders
     c = new Controlador<int>(1);
     d1 = new Decoder(1);
     d2 = new Decoder(2);
@@ -35,10 +35,12 @@ class CrearLista : public ::testing::Test {
         delete list3;
         delete list4;
         delete list5;
+        delete list6;
         delete d1;
         delete d2;
         delete d3;
         delete d4;
+        delete c;
    }
 
     List<int> *list;
@@ -54,15 +56,19 @@ class CrearLista : public ::testing::Test {
     Controlador<int>*c;
 };
 
-
+TEST_F(CrearLista, EsAtomico){
+    EXPECT_EQ(list->getHead()->getHead()->isAtomicList(), true);
+}
+TEST_F(CrearLista, NoEsAtomico){
+    EXPECT_EQ(list->getTail()->isAtomicList(), false);
+}
 TEST_F(CrearLista, mostrarLista){
-    EXPECT_EQ(list->toString(),"((3 5) (6 1))");
+    EXPECT_EQ(list->toString(),"((3 5)(6 1))");
 }
 TEST_F(CrearLista, mostrarLista2){
-    EXPECT_EQ(list2->toString(),"(5 (6 1))");
+    EXPECT_EQ(list2->toString(),"((5)(6 1))");
 }
 TEST_F(CrearLista, integerCases3){
-    std::cout<<"List3: "<<list3->toString()<<std::endl;
     ASSERT_TRUE(list3->getHead()==nullptr && list3->getTail()==nullptr);
 }
 TEST_F(CrearLista, parantesisFaltantes){
@@ -80,7 +86,12 @@ TEST_F(CrearLista, buscarValorNoExistente){
 TEST_F(CrearLista, acceder_a_la_cabeza){
     EXPECT_EQ(list6->getHead()->toString(),"(hola adios)");
 }
-
+TEST_F(CrearLista, acceder_a_la_cola){
+    EXPECT_EQ(list6->getTail()->toString(),"(patata mango)");
+}
+TEST_F(CrearLista, acceder_a_la_cabeza_de_la_cola){
+    EXPECT_EQ(list6->getTail()->getHead()->toString(),"patata");
+}
 
 TEST(Decoder, dataTypeConverter){
     Decoder c = Decoder(2);
@@ -91,8 +102,6 @@ TEST(Decoder, esInputValido){
     bool inputValido = c.esInputValido("( (a b)(c d");
     ASSERT_FALSE(inputValido == true);
 }
-
-
 
 int main(){
     testing::InitGoogleTest();
